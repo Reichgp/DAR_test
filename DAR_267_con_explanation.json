@@ -1,10 +1,10 @@
 {
   "settings": {
-    "show_progress": true,
-    "shuffle_options": false,
-    "show_explanation": true,
-    "shuffle_questions": false
-  },
+  "show_progress": true,
+  "shuffle_questions": true,
+  "shuffle_options": true,
+  "show_explanation": true
+},
   "questions": [
     {
       "id": "q1",

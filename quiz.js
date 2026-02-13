@@ -1,5 +1,5 @@
-// Archivo JSON
-const DATA_FILE = "DAR_nuevas.json";
+
+const DATA_FILE = "dar.json";
 
 let settings = {
   show_progress: true,
@@ -17,7 +17,7 @@ let answered = 0;
 let currentAnswered = false;
 let lastWasCorrect = false;
 
-// NUEVO: respuestas guardadas para permitir "Anterior" sin romper contador
+
 // key: question.id  value: { selected: string, isCorrect: boolean }
 const responses = new Map();
 
@@ -30,22 +30,23 @@ const elExplanation = document.getElementById("explanation");
 const elScore = document.getElementById("score");
 const elAnswered = document.getElementById("answered");
 const elTotal = document.getElementById("total");
+const elFails = document.getElementById("fails");
 
 const btnAnswer = document.getElementById("btnAnswer");
 const btnNext = document.getElementById("btnNext");
-const btnPrev = document.getElementById("btnPrev");     // NUEVO
+const btnPrev = document.getElementById("btnPrev");     
 const btnRestart = document.getElementById("btnRestart");
 
 btnAnswer.addEventListener("click", onAnswer);
 btnNext.addEventListener("click", onNext);
-btnPrev.addEventListener("click", onPrev);              // NUEVO
+btnPrev.addEventListener("click", onPrev);              
 btnRestart.addEventListener("click", restart);
 
 init();
 
 async function init() {
   try {
-    // Sin "Listo." fijo: solo mostramos cargando y errores
+   
     elStatus.textContent = "Cargando preguntas…";
 
     const res = await fetch(DATA_FILE, { cache: "no-store" });
@@ -65,7 +66,7 @@ async function init() {
     if (settings.shuffle_questions) shuffleInPlace(order);
 
     elTotal.textContent = String(questions.length);
-    elStatus.textContent = ""; // quitamos "Listo."
+    elStatus.textContent = ""; 
     btnRestart.disabled = false;
 
     renderQuestion();
@@ -278,6 +279,7 @@ function updateScoreboard() {
   elScore.textContent = String(score);
   elAnswered.textContent = String(answered);
   elTotal.textContent = String(questions.length);
+  elFails.textContent = String(Math.max(0, answered - score));
 }
 
 function shuffleInPlace(arr) {

@@ -1,5 +1,5 @@
 // Archivo JSON
-const DATA_FILE = "DAR_test_IA.json";
+const DATA_FILE = "DAR_nuevas.json";
 
 let settings = {
   show_progress: true,

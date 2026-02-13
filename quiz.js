@@ -1,5 +1,5 @@
 // Archivo JSON
-const DATA_FILE = "DAR_267_con_explanation.json";
+const DATA_FILE = "DAR_test_IA.json";
 
 let settings = {
   show_progress: true,
@@ -75,8 +75,11 @@ function normalizeQuestion(q) {
   const options = Array.isArray(q.options) ? q.options.map(String) : [];
   const correct = String(q.correct_answer ?? "");
 
-  // explanation opcional
-  const explanation = q.explanation != null ? String(q.explanation) : "";
+  const meta = (q.meta && typeof q.meta === "object") ? q.meta : {};
+  const explanation =
+    q.explanation != null ? String(q.explanation) :
+    meta.explicacion != null ? String(meta.explicacion) :
+    "";
 
   return {
     id: String(q.id ?? ""),

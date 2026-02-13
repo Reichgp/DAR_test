@@ -3,7 +3,7 @@
 Repositorio con un **banco de preguntas tipo test de la asignatura DAR (Desarrollo de Aplicaciones en Red)**, preparado para su uso en **GitHub Pages** como herramienta de práctica y autoevaluación.
 
 ## Contenido
-- **268 preguntas tipo test**.
+- ** preguntas tipo test**.
 - Preguntas organizadas por bloques del temario (HTML5, CSS3, JavaScript, AJAX, Bootstrap, MVC, SOA, HTTP, Grid, etc.).
 - Cada pregunta incluye:
   - opciones de respuesta,
